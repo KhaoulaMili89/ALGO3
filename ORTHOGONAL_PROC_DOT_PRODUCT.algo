@@ -1,0 +1,51 @@
+ALGORITHM ORTHOGONAL_PROCEDURE
+
+VAR
+TAB1 : ARRAy_OF FLOAT[];
+TAB2 : ARRAy_OF FLOAT[];
+N1,N2,NB_Pairs,i,k,j: INTEGER;
+
+/**PROCEDURE Dot_Product**/
+PROCEDURE Dot_Product(V1:ARRAy_OF FLOAT,V2:ARRAy_OF FLOAT,N:INTEGER)
+VAR
+i:INTEGER;
+PS:FLOAT :=0;
+
+BEGIN
+FOR i FROM 0 TO N-1 STEP 1 DO
+PS:= PS + (V1[i] * V2[i]);
+END_FOR
+
+IF (PS = 0) THEN
+write("You have orthoganal vectors");
+ELSE 
+write("You haven't orthoganal vectors");
+END_IF
+
+END
+/**Prog Principal**/
+BEGIN
+
+REPEAT
+read(N1);
+read(N2);
+UNTIL(N1=N2);
+
+write("HOW many pairs of vectors you have?");
+read(NB_Pairs);
+
+FOR k FROM 1 TO NB_Pairs STEP 1 DO
+
+FOR i FROM 0 TO N1-1 STEP 1 DO
+read(TAB1[i]);
+END_FOR
+
+FOR j FROM 0 TO N2-1 STEP 1 DO
+read(TAB2[j]);
+END_FOR
+
+Dot_Product(TAB1,TAB2,N1);
+
+END_FOR
+
+END
